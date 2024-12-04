@@ -73,3 +73,39 @@ def display_graph(mermaid_path, mermaid_tool_path):
     else:
         print(f"Граф сохранён в {png_file}. Открываю...")
         os.startfile(png_file) if os.name == "nt" else subprocess.run(["xdg-open", png_file])
+
+def main():
+    parser = argparse.ArgumentParser(description="Commit Dependency Graph Visualizer")
+    parser.add_argument('--viz', required=True, help='Path to the graph visualization program (Mermaid CLI)')
+    parser.add_argument('--repo', required=True, help='Path to the git repository to analyze')
+    parser.add_argument('--date', required=True, help='Include commits before this date (YYYY-MM-DD)')
+
+    args = parser.parse_args()
+
+    if not os.path.exists(args.viz):
+        print(f"Visualization program {args.viz} not found.")
+        return
+
+    if not os.path.exists(args.repo):
+        print(f"Repository {args.repo} not found.")
+        return
+
+    try:
+        before_date = datetime.strptime(args.date, "%Y-%m-%d")
+    except ValueError:
+        print("Дата должна быть в формате YYYY-MM-DD.")
+        return
+
+    commits = get_commit_history(args.repo, before_date)
+    if not commits:
+        print("Нет подходящих коммитов до указанной даты.")
+        return
+
+    mermaid_graph = build_mermaid_graph(commits)
+    mermaid_file = "graph.mmd"
+    save_mermaid_file(mermaid_graph, mermaid_file)
+    display_graph(mermaid_file, args.viz)
+
+
+if __name__ == "__main__":
+    main()
