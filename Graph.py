@@ -41,7 +41,7 @@ def get_commit_history(repo_path, before_date):
     return commit_data
 
 def build_mermaid_graph(commits):
-    
+
     mermaid_graph = "graph TD\n"
 
     for i, commit in enumerate(commits):
@@ -61,3 +61,15 @@ def save_mermaid_file(mermaid_graph, output_path):
 
     with open(output_path, 'w', encoding="utf-8") as f:
         f.write(mermaid_graph)
+
+def display_graph(mermaid_path, mermaid_tool_path):
+
+    png_file = "graph.png"
+    cmd = [mermaid_tool_path, "-i", mermaid_path, "-o", png_file]
+    result = subprocess.run(cmd)
+
+    if result.returncode != 0:
+        print("Ошибка при генерации изображения графа.")
+    else:
+        print(f"Граф сохранён в {png_file}. Открываю...")
+        os.startfile(png_file) if os.name == "nt" else subprocess.run(["xdg-open", png_file])
