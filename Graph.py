@@ -41,23 +41,23 @@ def get_commit_history(repo_path, before_date):
     return commit_data
 
 def build_mermaid_graph(commits):
-    """
-    Построить граф зависимостей в формате Mermaid, где рёбра показывают зависимости между коммитами.
-    """
+    
     mermaid_graph = "graph TD\n"
 
     for i, commit in enumerate(commits):
         commit_hash = commit[0]
         commit_message = commit[1]
         files_folders = commit[2]
-
-        # Формируем описание узла коммита
-        files_folders_str = "<br>".join(files_folders)  # Для читаемого отображения файлов
+        files_folders_str = "<br>".join(files_folders)
         mermaid_graph += f'    {commit_hash}["{commit_message}<br>"]\n'
 
-        # Добавляем связь между коммитами
         if i > 0:
             previous_commit_hash = commits[i - 1][0]
             mermaid_graph += f'    {commit_hash} --> {previous_commit_hash}\n'
 
     return mermaid_graph
+
+def save_mermaid_file(mermaid_graph, output_path):
+
+    with open(output_path, 'w', encoding="utf-8") as f:
+        f.write(mermaid_graph)
