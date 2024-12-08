@@ -39,19 +39,20 @@ py Graph.py --viz <путь_к_mermaid_cli> --repo <путь_к_репозито
 
 Обычный
 
-![image](https://github.com/user-attachments/assets/3315d697-0966-45dd-8fb2-d962951584fb)
+![image](https://github.com/user-attachments/assets/01ff63b9-3c26-4e07-a4f0-dbace99b132d)
 
 С датой
 
-![image](https://github.com/user-attachments/assets/288c39c6-335f-4f5d-af99-454a604d9913)
+![image](https://github.com/user-attachments/assets/8949246c-45f8-4b8e-9435-3817cf783bb3)
 
 С не очень датой
 
-![image](https://github.com/user-attachments/assets/a330cc48-b862-404c-bd82-5034cc9866e5)
+![image](https://github.com/user-attachments/assets/5957a705-23ff-4b12-8e06-59811938f5ba)
 
 дата +-
 
-![image](https://github.com/user-attachments/assets/ad13a174-7aec-43a5-9888-85ceae0f9452)
+![image](https://github.com/user-attachments/assets/ae516491-62d9-4deb-b7d8-43e47604cc83)
+
 
 
 
