@@ -49,9 +49,15 @@ py Graph.py --viz <путь_к_mermaid_cli> --repo <путь_к_репозито
 
 ![image](https://github.com/user-attachments/assets/5957a705-23ff-4b12-8e06-59811938f5ba)
 
-дата +-
+Дата +-
 
 ![image](https://github.com/user-attachments/assets/ae516491-62d9-4deb-b7d8-43e47604cc83)
+
+И новая традиция
+
+![animation](https://github.com/user-attachments/assets/8bbb379f-23bd-42b7-bf4a-287fc7f6c91c)
+
+
 
 
 
